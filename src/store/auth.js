@@ -1,7 +1,7 @@
 import { create } from "zustand";
 import request from "../server";
 
-const useAuth = create((set) => ({
+const useAuth = create((set, get) => ({
   isAuthenticated: false,
   user: null,
   isModalOpen: false,
@@ -13,10 +13,10 @@ const useAuth = create((set) => ({
   closeModal: () => {
     set({ isModalOpen: false });
   },
-  handleLogin: async (form, navigate) => {
+  handleLogin: async (form) => {
     const values = await form.validateFields();
     if (values.Email === "admin@gmail.com" && values.Password === "admin") {
-      navigate("/dashboard");
+      window.location.replace("/dashboard");
     }
     try {
       set({ isModalLoading: true });
@@ -35,8 +35,8 @@ const useAuth = create((set) => ({
     formData.append("Password", values.Password);
     try {
       set({ isModalLoading: true });
-      const { data } = await request.post("auth/register", formData);
-      console.log(data);
+      await request.post("auth/register", formData);
+      get().closeModal();
     } finally {
       set({ isModalLoading: false });
     }
