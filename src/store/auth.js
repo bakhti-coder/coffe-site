@@ -13,10 +13,11 @@ const useAuth = create((set, get) => ({
   closeModal: () => {
     set({ isModalOpen: false });
   },
-  handleLogin: async (form) => {
+  handleLogin: async (form, navigate) => {
     const values = await form.validateFields();
     if (values.Email === "admin@gmail.com" && values.Password === "admin") {
-      window.location.replace("/dashboard");
+      navigate("/dashboard");
+      window.location.reload();
     }
     try {
       set({ isModalLoading: true });
