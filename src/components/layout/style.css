@@ -1,0 +1,28 @@
+.nav_link {
+  position: relative;
+  color: #000; /* o'zingiz istagan rang */
+  cursor: pointer;
+  transition: color 0.3s ease-in-out;
+}
+
+.nav_link:hover {
+  color: #00f; /* o'zingiz istagan hover rangi */
+}
+
+.nav_link::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px; /* Underlineninging balandligi */
+  background-color: #00f; /* o'zingiz istagan rang */
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  transition: transform 0.3s ease-in-out;
+}
+
+.nav_link:hover::before {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}

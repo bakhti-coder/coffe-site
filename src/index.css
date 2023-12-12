@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.container {
+  max-width: 1280px;
+  width: 100%;
+  padding: 0 20px;
+  margin: 0 auto;
+}
+
+body {
+  font-family: Regular;
+}
+
+@font-face {
+  font-family: Regular;
+  src: url(./assets/fonts/Jost-Regular.ttf);
+}
+@font-face {
+  font-family: Bold;
+  src: url(./assets/fonts/Jost-Bold.ttf);
+}
+@font-face {
+  font-family: Semibold;
+  src: url(./assets/fonts/Jost-SemiBold.ttf);
+}
+@font-face {
+  font-family: Extrabold;
+  src: url(./assets/fonts/Jost-ExtraBold.ttf);
+}
+@font-face {
+  font-family: Medium;
+  src: url(./assets/fonts/Jost-Medium.ttf);
+}
